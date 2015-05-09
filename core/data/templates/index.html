@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Squire Startup Weekend!</title>	
+  <meta charset="utf-8">
+  <title>Squire Startup!</title> 
 
-	<link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
 
-	<style type="text/css">    
+  <style type="text/css">    
   body
   {
-    background-color:#000;
+    background-color:#010;
   }
 
   h1
   {
-    font-size:36px;
-    margin-top:0;
+    /*position: relative;*/
+    font-size:30px;
+    margin-top:0px;
+    margin: -50px;
     font-family:Arial, sans-serif;
-    text-shadow:2px 0 15px #292929;
+    text-shadow:5px 0 20px #292929;
     letter-spacing:4px;
     text-decoration:none;
-    color:#DDD;
+    color:#484848;
   }
 
   #banner
   {
-    width:500px;
+    width:400px;
     height:200px;
     text-align:center;
-    background-image:url(http://i.imgur.com/MQHYB.jpg);
+    background-image:url(https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/005/00a/375/036741c.jpg);
     background-repeat:no-repeat;
     border-radius:5px;
-    margin:90px auto auto;
-    padding:80px 0;
+    margin:100px auto auto;
+    padding:100px 0;
+    text-margin: -20px;
   }
 
+  form
+  {
+    text-align:center;
+    margin: 20px;
+  }
+  p
+  {
+   padding:0px;
+   margin:-150px auto auto;
+   width:400px;
+   height:48px;
+   text-align:center;
+  }
   .lead
   {
     background-color:rgba(255,255,255,0.6);
@@ -42,19 +58,26 @@
     box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
     font-family:Sintony, sans-serif;
   }
-	</style>
+  </style>
 
 </head>  
   
 <body>
-	<div id="banner">
-		<h1>squires everywhere</h1>
-		<p class="lead">We're bringing cats to the internet. Free. Cute. Awesome.</p>
-		<form action="/signup" method="post">
-		  <input type="text" name="email"></input>
-		  <input type="submit" value="Signup"></input>
-		</form>
-	</div>
+  <div id="banner">
+    <h1>squires everywhere</h1>
+    
+  </div>
+    <form action="/signup" method="post">
+      <input type="text" name="email"></input>
+      <input type="submit" value="Enter Email"></input>
+  </form>
+
+  <p class="lead">We're bringing freedom to the internet. Freedom.  Awesome.</p>
+  <div id="emailform">
+    
+  </div>
+
+
 
 </body>
 </html>

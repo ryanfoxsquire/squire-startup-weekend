@@ -1,28 +1,26 @@
-import os
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template
 from flask import request, redirect
-
 app = Flask(__name__)
 
 email_addresses = []
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    author = "Me"
+    name = "You"
+    return render_template('index.html', author=author, name=name)
 
 @app.route('/signup', methods = ['POST'])
 def signup():
     email = request.form['email']
+    print("\nThe email address is '" + email + "'")
     email_addresses.append(email)
-    print(email_addresses)
+    print("Whole List: \n{0}".format(email_addresses))
     return redirect('/')
 
 @app.route('/emails.html')
 def emails():
-    return render_template('emails.html', email_addresses = email_addresses)
+    return render_template('emails.html', email_addresses=email_addresses)
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-
+if __name__ == "__main__":
+    app.run()
