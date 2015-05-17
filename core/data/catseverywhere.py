@@ -32,6 +32,10 @@ def signup():
     print("Whole List: \n{0}".format(email_addresses))
     return redirect('/')
 
+@app.route('/methods')
+def methods():
+    return render_template('methods.html')
+
 @app.route('/emails.html')
 def emails():
     return render_template('emails.html', email_addresses=email_addresses)
