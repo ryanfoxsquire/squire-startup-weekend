@@ -79,6 +79,13 @@ hr
   margin-top: 50px;
 }
 
+#nav-bar
+{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+}
+
 #People
 {
   text-align: center;

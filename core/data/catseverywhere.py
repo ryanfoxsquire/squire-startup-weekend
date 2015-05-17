@@ -9,6 +9,7 @@ app = Flask(__name__)
 email_addresses = []
 
 @app.route('/')
+@app.route('/index')
 def hello_world():
 
     # build rankings list
