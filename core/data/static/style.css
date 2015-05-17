@@ -2,7 +2,7 @@
 /* learned from http://flask.pocoo.org/docs/0.10/tutorial/css/ */
   body
  {
-  color: black;
+  color: white;
   background-color: #008080;
   margin-right: 250px;
   margin-left: 250px;
@@ -14,7 +14,7 @@
     /*position: relative;*/
     font-size:30px;
     margin-top:0px;
-    margin: -50px;
+    margin: -80px;
     font-family:Arial, sans-serif;
     text-shadow:5px 0 20px #292929;
     letter-spacing:4px;
@@ -31,9 +31,8 @@
     background-repeat:no-repeat;
     border-radius:5px;
     border: 5px solid gray;
-    margin:100px auto auto;
+    margin: 50px auto auto;
     padding:100px 0;
-    text-margin: -50px;
   }
 
   form
@@ -57,7 +56,7 @@
 
 #ValueStatement
 {
-  margin-top: 150px;
+  margin-top: 50px;
   color: white;
   margin-bottom: 50px;
 }
@@ -78,6 +77,9 @@ hr
   margin-right: auto;
   margin-top: 50px;
   color: white;
+  font-size: 34px;
+  font-family: sans-serif;
+
 }
 
 #SMI th
