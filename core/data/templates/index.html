@@ -183,7 +183,6 @@ hr.end
   <hr>
   <tr>
     <th></th>
-    <th></th>
     <th></th>  
     <th colspan="2">Social Media Index</th>  
   </tr>
@@ -198,8 +197,7 @@ hr.end
              width=100>
            </img> 
          </td>
-    <td>{{ this_candidate.full_name }}</td>
-    <td>({{ this_candidate.Party }})</td>  
+    <td>{{ this_candidate.full_name }} ({{ this_candidate.Party }})</td>  
     <td style="font-size: 34px; width: 160px">{{ this_candidate.SMI_Index_per_million }}</td>  
   </tr>
   {% endfor %}
