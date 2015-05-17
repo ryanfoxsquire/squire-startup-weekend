@@ -1,109 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Squire Startup!</title> 
 
-  <link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+ <title>Squire Startup!</title> 
+{% extends "layout.html" %}
+{% block content %}
 
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-
-</head>  
-  
-<body>
-  <div id="banner">
-    <h1>Squire Synergy</h1>
-    
-  </div>
-    <form action="/signup" method="post">
-      <input type="text" name="email"></input>
-      <input type="submit" value="Enter Email"></input>
-  </form>
-
-  <p class="lead">Making sure the tail isn't wagging the dog since 1988.</p>
-  <div id="emailform">
-    
-  </div>
-  <div id="ValueStatement">
+  <div id="Title">
     <hr class="valuebars">
-    <h1> Value of using a Social Media Index to Rank the 2016 Presidential Contendars</h1>
+      <h1 style="text-align: center"> Ranking of 2016 POTUS Candidates By Social Media Index</h1>
     <hr class="valuebars">
-      <p class="valuegrafs">The 2016 presidential election will witness the most sophisticated, expensive, and involved use of technology to reach and mobilize voters on social media.</p>
-
-       <p class="valuegrafs">The strength of a candidate’s social influence will directly relate to their ability to fundraise, build capacity, and spread their message. Increasingly, elections will be directed by who can control their social media presence--or, as Nate Silver states, “who has more ability to change the conversation at a moment’s notice…” </p>
-
-       <p class="valuegrafs">So how do we know who has the greatest social media influence? </p>
-
-       <p class="valuegrafs">We applied Nate Silver’s <a href="http://content.time.com/time/specials/packages/article/0,28804,1984685_1984713_1984669,00.html">“Networking Index"</a> (which we rebranded as the “Social Media Index,”) to the 2016 Presidential field. This gives us a basic idea of how to compare relative influence over social media.</p>
-
-
-  </div>
-
-
-<table id="SMI"; style="width:60%">
-  <hr>
-    <h1>Ranking of SMI for 2016 POTUS Candidates</h1>
-  <hr>
+<table id="SMI"; style="width:75%">
   <tr>
     <th></th>
     <th></th>  
-    <th colspan="2">Social Media Index</th>  
+    <th colspan="2"><a href="/methods">Social Media Index</a></th>
   </tr>
 
   {% for this_candidate in rankings_list %}
   <tr>
     <td>{{ this_candidate.Rank }}. </td>
-    <td> <img src = {{this_candidate.picture_URL}} 
+    <td style="color: black"> <img src = {{this_candidate.picture_URL}} 
              alt = {{this_candidate.alt}} 
              border=3 
-             height=100 
-             width=100>
+             height=150 
+             width=150>
            </img> 
          </td>
-    <td>{{ this_candidate.full_name }} ({{ this_candidate.Party }})</td>  
-    <td style="font-size: 34px; width: 160px">{{ this_candidate.SMI_Index_per_million }}</td>  
+    <td style="font-size: 24px">{{ this_candidate.full_name }} ({{ this_candidate.Party }})</td>  
+    <td style="font-size: 48px; width: 160px">{{ this_candidate.SMI_Index_per_million }}</td>  
   </tr>
   {% endfor %}
 
 </table>
-<div id="FAQ">
-  <hr>
-    <h1>Defining the 2016 Field</h1>
-  <hr>
-    <p>All declared candidates from both major parties were included, as well as candidates rumored or expected to run based on their public statements or activities. Some candidates who have stated they will not run, like Senator Elizabeth Warren, were included because their potential for candidacy and their indirect influence on the presidential field.
-    </p>
+    <hr class="valuebars">
+      <h1 style="text-align: center">What is the Social Media Index?</h1>
+    <hr class="valuebars">
+  <p>THE SMI is a number that ranges from 0 to Infinity, and is roughly correlated with how many millions of followers you have on social media accounts. The larger the number, the larger your influence. You can read more about our methodology <a href="/methods"> here.</a>   </p>
 
-  <hr>
-    <h1>Calculating the Social Media Index</h1>
-  <hr>
-    <p>Using Nate Silver’s proposal for finding a standardized score for social media influence across Facebook and Twitter, we collected data on our 2016 field. We then standardized this metric for users per million to make the SMI more readable.  This information was collected from all accounts on Saturday, May 16, 2016.</p>
-
-  <hr>
-    <h1>Information Sources</h1>
-  <hr>
-   <p>Social media information from Facebook and Twitter was pulled from the campaign accounts for all subjects or, in the cases where they are not declared candidates (e.g. Donald Trump) from their personal accounts. We did not use the government social media accounts for members who are elected, because those members are prohibited from sharing political and electoral information over those feeds. Thus, we decided that government accounts are not an accurate measure of one's "social media influence" in terms of their ability to shape discourse around the 2016 presidential election.</p>
-
-</div>
-
-  <div id="People">
-    <h1>People Involved</h1>
-      <p style="float: right; width: 200px; margin-left: 30px; margin-bottom: 5px; text-align: center: font-size: 8pt;"><img src="https://pbs.twimg.com/profile_images/3761900251/7e82e1677e391e35130ced1d173d93ad_400x400.jpeg" style="width: 100%;">Ryan Squire</p>
-      <p style="float: left; width: 200px; margin-right: 30px; margin-bottom: 5px; text-align: center: font-size: 8pt;"><img src="https://pbs.twimg.com/profile_images/2464524570/LukeatTaj_400x400.jpg" style="width: 100%;">Luke Squire</p>
-      <p id="peopletext"> Ryan and Luke are brothers living in San Francisco, CA and Washington, DC, respectively. They both attended Oberlin College. <br> <br> Ryan works in the intersection of neuroscience and technology. Luke is interested in civic engagement and building tools to expand democracy. <br> <br> They both love California Burritos.</p>
-  </div>
-
-
-<div id="SocialShare">
-<hr class="end">
-  <p> <a href = "http://twitter.com/share?text=POTUS hopefuls have very different social media influence! check it out -->&url=https://squirestartup.herokuapp.com/&hashtags=SMIofPOTUS" > share the stats
-  <img class="twitter" src = https://g.twimg.com/Twitter_logo_white.png width ="25" height="25" >
-  </a></p>
-  <br>
-  <p> &copy; 2015</p>
-  <p> <a href= "mailto:squirestartup@gmail.com?Subject=Social%20Media%20Index" target="_top">| SquireStartup AT gmail DOT com |</a>
-</div>
-
-
-
-</body>
-</html>
+{% endblock %}
