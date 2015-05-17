@@ -14,6 +14,7 @@
   margin-right: 250px;
   margin-left: 250px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
  }
   #banner h1
   {
@@ -83,6 +84,14 @@ hr
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  color: white;
+}
+
+#SMI th
+{
+  text-align: right;
+  font-style: italic;
+  color: #9999FF;
 }
 
 #People
@@ -168,17 +177,15 @@ hr.end
   </div>
 
 
-<table id="SMI"; style="width:90%">
+<table id="SMI"; style="width:60%">
   <hr>
     <h1>Ranking of SMI for 2016 POTUS Candidates</h1>
   <hr>
-
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>  
-    <td>Social Media Index</td>  
+    <th></th>
+    <th></th>
+    <th></th>  
+    <th colspan="2">Social Media Index</th>  
   </tr>
 
   {% for this_candidate in rankings_list %}
@@ -192,8 +199,8 @@ hr.end
            </img> 
          </td>
     <td>{{ this_candidate.full_name }}</td>
-    <td>[{{ this_candidate.Party }}]</td>  
-    <td>{{ this_candidate.SMI_Index_per_million }}</td>  
+    <td>({{ this_candidate.Party }})</td>  
+    <td style="font-size: 34px; width: 160px">{{ this_candidate.SMI_Index_per_million }}</td>  
   </tr>
   {% endfor %}
 
