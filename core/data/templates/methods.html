@@ -1,12 +1,7 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Squire Startup - Methods</title> 
-
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-
+ <title>Squire Startup - Methods</title> 
+{% extends "layout.html" %}
+{% block content %}
 <div id="ValueStatement">
     <hr class="valuebars">
     <h1> Value of using a Social Media Index to Rank the 2016 Presidential Contendars</h1>
@@ -40,6 +35,5 @@
    <p>Social media information from Facebook and Twitter was pulled from the campaign accounts for all subjects or, in the cases where they are not declared candidates (e.g. Donald Trump) from their personal accounts. We did not use the government social media accounts for members who are elected, because those members are prohibited from sharing political and electoral information over those feeds. Thus, we decided that government accounts are not an accurate measure of one's "social media influence" in terms of their ability to shape discourse around the 2016 presidential election.</p>
 
 </div>
+{% endblock %}
 
-</body>
-</html>

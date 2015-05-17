@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+<!-- Our CSS Style  -->
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h2>This is part of my base template</h2>
+    <br>
+    <!-- This is Where child code gets inserted  -->
+    {% block content %}{% endblock %}
+    <br>
+    <h2>This is part of my base template</h2>
+  </div>
+
+  <!-- Nav Bar -->
+
+  <!-- Social Share & Contact Us-->
+
+  <div id="SocialShare">
+  <hr class="end">
+   <p> <a href = "http://twitter.com/share?text=POTUS hopefuls have very different social media influence! check it out -->&url=https://squirestartup.herokuapp.com/&hashtags=SMIofPOTUS" > share the stats
+    <img class="twitter" src = https://g.twimg.com/Twitter_logo_white.png width ="25" height="25" >
+    </a></p>
+    <br>
+    <p> &copy; 2015</p>
+    <p> <a href= "mailto:squirestartup@gmail.com?Subject=Social%20Media%20Index" target="_top">| SquireStartup AT gmail DOT com |</a>
+  </div>
+
+</body>
