@@ -1,24 +1,28 @@
 import os
 from flask import Flask, render_template
 from flask import request, redirect
+from settings import APP_STATIC
+import csv
+from pdb import set_trace as pause
 app = Flask(__name__)
 
 email_addresses = []
 
 @app.route('/')
 def hello_world():
-    #author = "Me"
-    #name = "You"
-    rankings = { 
-        'name' : 'Hillary Clinton',
-        'alt' : 'Clinton_image',
-        'rank_num' : str(1) + '. ', # as a string
-        'image_url' : "https://pbs.twimg.com/profile_images/597758898087587840/WFulk7EO_400x400.png",
-        'party' : '[D]',
-        'SMI' : str(3.92)
-        }
 
-    return render_template('index.html', rankings = rankings, loops = [1,2,3,4,5])
+    # build rankings list
+    rankings_list = []
+    with open(os.path.join(APP_STATIC, 'POTUS_Candidates_data.csv')) as f:
+        reader = csv.DictReader(f)        
+        for rows in reader:
+            rows['full_name'] = rows['First'] + " " + rows['Last']
+            rankings_list.append(rows) # each element is a dictionary
+
+    return render_template('index.html', 
+                            rankings = rankings_list[1], 
+                            rankings_list = rankings_list,
+                            loops = [1,2,3,4,5])
 
 @app.route('/signup', methods = ['POST'])
 def signup():
