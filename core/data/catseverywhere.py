@@ -36,6 +36,10 @@ def signup():
 def methods():
     return render_template('methods.html')
 
+@app.route('/authors')
+def authors():
+    return render_template('authors.html')
+
 @app.route('/emails.html')
 def emails():
     return render_template('emails.html', email_addresses=email_addresses)
