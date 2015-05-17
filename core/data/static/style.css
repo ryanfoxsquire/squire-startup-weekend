@@ -1,13 +1,13 @@
 
 /* learned from http://flask.pocoo.org/docs/0.10/tutorial/css/ */
-
-body
+  body
  {
   color: black;
   background-color: #008080;
   margin-right: 250px;
   margin-left: 250px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 20px;
  }
   #banner h1
   {
@@ -77,6 +77,14 @@ hr
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  color: white;
+}
+
+#SMI th
+{
+  text-align: right;
+  font-style: italic;
+  color: #9999FF;
 }
 
 #nav-bar
