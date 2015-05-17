@@ -7,9 +7,36 @@ email_addresses = []
 
 @app.route('/')
 def hello_world():
-    author = "Me"
-    name = "You"
-    return render_template('index.html', author=author, name=name)
+    #author = "Me"
+    #name = "You"
+    rankings = { 
+        'name' : 'Hillary Clinton',
+        'alt' : 'Clinton_image',
+        'rank_num' : str(1) + '. ', # as a string
+        'image_url' : "https://pbs.twimg.com/profile_images/597758898087587840/WFulk7EO_400x400.png",
+        'party' : '[D]',
+        'SMI' : str(3.92)
+        }
+
+    return render_template('index.html', rankings = rankings, loops = [1,2,3,4,5])
+
+@app.route('/index2')
+def index():
+    user = {'nickname': 'Miguel'}
+    posts = [
+        {
+            'author': {'nickname': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
+    return render_template("index2.html",
+                           title='Home',
+                           user=user,
+                           posts=posts)
 
 @app.route('/signup', methods = ['POST'])
 def signup():
