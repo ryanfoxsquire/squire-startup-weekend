@@ -10,9 +10,11 @@
   body
  {
   color: black;
-  background-color: #008080
+  background-color: #008080;
+  margin-right: 150px;
+  margin-left: 150px;
  }
-  h1
+  #banner h1
   {
     /*position: relative;*/
     font-size:30px;
@@ -56,20 +58,36 @@
     width:400px;
     height:40px;
     text-align:center;
-
   }
+
+#ValueStatement
+{
+  margin-top: 150px;
+  color: white;
+  margin-bottom: 50px;
+}
+
+h1
+{
+  color: white;
+}
+
+hr
+{
+  color: white;
+}
 
 #SMI
 {
   margin-left: auto;
   margin-right:auto;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 
 #People
 {
   text-align: center;
-  margin-top: 250px;
+  margin-top: 50px;
 
 }
 
@@ -90,13 +108,32 @@ color: white;
   margin-right: auto;
   margin-left: auto;
 }
+
+#FAQ
+{
+  margin-top: 50px;
+}
+
+hr.end
+  {
+    height: 20px;
+    background: url(http://www.syntaxxx.com/images/hr/horizontal-rule-blue-stars.png) no-repeat center;url(http://www.syntaxxx.com/images/hr/horizontal-rule-blue-stars.png) no-repeat center;
+    border: none;
+  }
+
+#SocialShare
+{
+  text-align: center;
+  color: white;
+}
+
   </style>
 
 </head>  
   
 <body>
   <div id="banner">
-    <h1>squires everywhere</h1>
+    <h1>Squire Synergy</h1>
     
   </div>
     <form action="/signup" method="post">
@@ -104,12 +141,31 @@ color: white;
       <input type="submit" value="Enter Email"></input>
   </form>
 
-  <p class="lead">We're bringing freedom to the internet. Freedom.  Awesome.</p>
+  <p class="lead">Making sure the tail isn't wagging the dog since 1988.</p>
   <div id="emailform">
     
   </div>
+  <div id="ValueStatement">
+    <hr class="valuebars">
+    <h1> Value of the Social Media Index in the 2016 Presidential Race</h1>
+    <hr class="valuebars">
+      <p class="valuegrafs">The 2016 presidential election will witness the most sophisticated, expensive, and involved use of technology to reach and mobilize voters on social media.</p>
+
+       <p class="valuegrafs">The strength of a candidate’s social influence will directly relate to their ability to fundraise, build capacity, and spread their message. Increasingly, elections will be directed by who can control their social media presence--or, as Nate Silver states, “who has more ability to change the conversation at a moment’s notice…” </p>
+
+       <p class="valuegrafs">So how do we know who has the greatest social media influence? </p>
+
+       <p class="valuegrafs">We applied Nate Silver’s <a href="http://content.time.com/time/specials/packages/article/0,28804,1984685_1984713_1984669,00.html">“Networking Index"</a> (which we rebranded as the “Social Media Index,”) to the 2016 Presidential field. This gives us a basic idea of how to compare relative influence over social media.</p>
+
+
+  </div>
+
 
 <table id="SMI"; style="width:50%">
+  <hr>
+    <h1>Ranking of SMI for 2016 POTUS Candidates</h1>
+  <hr>
+
   <tr>
     <td></td>
     <td></td>
@@ -135,10 +191,27 @@ color: white;
   {% endfor %}
 
 </table>
+<div id="FAQ">
+  <hr>
+    <h1>Defining the 2016 Field</h1>
+  <hr>
+    <p>All declared candidates from both major parties were included, as well as candidates rumored or expected to run based on their public statements or activities. Some candidates who have stated they will not run, like Senator Elizabeth Warren, were included because their potential for candidacy and their indirect influence on the presidential field.
+    </p>
 
+  <hr>
+    <h1>Calculating the Social Media Index</h1>
+  <hr>
+    <p>Using Nate Silver’s proposal for finding a standardized score for social media influence across Facebook and Twitter, we collected data on our 2016 field. We then standardized this metric for users per million to make the SMI more readable.  This information was collected from all accounts on Saturday, May 16, 2016.</p>
+
+  <hr>
+    <h1>Information Sources</h1>
+  <hr>
+   <p>Social media information from Facebook and Twitter was pulled from the campaign accounts for all subjects or, in the cases where they are not declared candidates (e.g. Donald Trump) from their personal accounts. We did not use the government social media accounts for members who are elected, because those members are prohibited from sharing political and electoral information over those feeds. Thus, we decided that government accounts are not an accurate measure of one's "social media influence" in terms of their ability to shape discourse around the 2016 presidential election.</p>
+
+</div>
 
   <div id="People">
-    <h2>People Involved</h2>
+    <h1>People Involved</h1>
       <h3>Ryan Squire</h3>
         <img class="Ryan Squire" src=https://pbs.twimg.com/profile_images/3761900251/7e82e1677e391e35130ced1d173d93ad.jpeg>
       <h3>Luke Squire</h3>
@@ -146,14 +219,16 @@ color: white;
   </div>
 
 <!-- Start Sociable -->
+<hr class="end">
 
 <div id="SocialShare">
-  <a href = "http://twitter.com/share?text=POTUS hopefuls have very different social media influence! check it out -->&url=https://squirestartup.herokuapp.com/&hashtags=branding, politics" >
-  <img class="twitter" src = https://g.twimg.com/Twitter_logo_white.png width ="20" height="20" >
-  share these stats
-</a>
+  <p> <a href = "http://twitter.com/share?text=POTUS hopefuls have very different social media influence! check it out -->&url=https://squirestartup.herokuapp.com/&hashtags=SMIofPOTUS" > share the stats
+  <img class="twitter" src = https://g.twimg.com/Twitter_logo_white.png width ="25" height="25" >
+  </a></p>
+  <br>
+  <p> &copy; 2015</p>
+  <p> <a href= "mailto:squirestartup@gmail.com?Subject=Social%20Media%20Index" target="_top">| SquireStartup AT gmail DOT com |</a>
 </div>
-
 
 
 
