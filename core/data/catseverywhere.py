@@ -20,24 +20,6 @@ def hello_world():
 
     return render_template('index.html', rankings = rankings, loops = [1,2,3,4,5])
 
-@app.route('/index2')
-def index():
-    user = {'nickname': 'Miguel'}
-    posts = [
-        {
-            'author': {'nickname': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'nickname': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template("index2.html",
-                           title='Home',
-                           user=user,
-                           posts=posts)
-
 @app.route('/signup', methods = ['POST'])
 def signup():
     email = request.form['email']
