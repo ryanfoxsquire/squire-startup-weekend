@@ -104,6 +104,16 @@ hr
   width: 80%;
 
 }
+/* this is the stylings for any hyperlinks, e.g., the nav bar */
+a:link {
+color: #D0D0D0;
+}
+a:visited {
+color: #D0D0D0;
+}
+a:hover {
+color: #FF3300;
+}
 
 #People
 {
