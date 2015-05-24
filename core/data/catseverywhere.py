@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from flask import request, redirect
+from flask.ext.sqlalchemy import SQLAlchemy
 from settings import APP_STATIC
 import csv
 from pdb import set_trace as pause
@@ -8,8 +9,16 @@ app = Flask(__name__)
 
 # Set Config Settings
 # THIS SHOULD BE config.ProductionConfig BEFORE PUSHING TO HEROKU
-APP_SETTINGS="config.DevelopmentConfig"  # "config.ProductionConfig"
-app.config.from_object(APP_SETTINGS)
+if("APP_SETTINGS" in os.environ.keys()):
+    app.config.from_object(os.environ['APP_SETTINGS'])
+else:
+    APP_SETTINGS="config.DevelopmentConfig"  # "config.ProductionConfig"
+    app.config.from_object(APP_SETTINGS)
+    
+
+#connect to database
+db = SQLAlchemy(app)
+from models import *
 
 email_addresses = []
 
