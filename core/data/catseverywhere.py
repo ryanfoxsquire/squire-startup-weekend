@@ -48,6 +48,7 @@ def authors():
 
 @app.route('/emails.html')
 def emails():
+    # we should remove this route. 
     return render_template('emails.html', email_addresses=email_addresses)
 
 if __name__ == "__main__":
