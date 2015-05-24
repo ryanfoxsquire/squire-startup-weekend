@@ -6,6 +6,11 @@ import csv
 from pdb import set_trace as pause
 app = Flask(__name__)
 
+# Set Config Settings
+# THIS SHOULD BE config.ProductionConfig BEFORE PUSHING TO HEROKU
+APP_SETTINGS="config.DevelopmentConfig"  # "config.ProductionConfig"
+app.config.from_object(APP_SETTINGS)
+
 email_addresses = []
 
 @app.route('/')
