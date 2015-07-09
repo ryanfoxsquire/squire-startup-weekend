@@ -19,3 +19,26 @@ class Result(db.Model):
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
+
+class Candidates(db.Model):
+    __tablename__ = 'candidates'
+
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    first_name = db.Column(db.String(255))    
+    last_name = db.Column(db.String(255))
+    party = db.Column(db.String(255))
+    picture_url = db.Column(db.String(255))
+    twitter_url = db.Column(db.String(255))
+    facebook_url = db.Column(db.String(255))
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
+
+    def __init__(self, params):
+        self.first_name = params.get('first_name', None)
+        self.last_name = params.get('last_name', None)
+        self.party = params.get('party', None)
+        self.picture_url = params.get('picture_url', None)
+        self.twitter_url = params.get('twitter_url', None)
+        self.facebook_url = params.get('facebook_url', None)
+        self.created_at = params.get('created_at', None)
+        self.updated_at = params.get('updated_at', None)

@@ -15,6 +15,8 @@ import requests
 import re
 import nltk
 
+import datetime
+
 app = Flask(__name__)
 
 # Set Config Settings
@@ -48,6 +50,20 @@ def hello_world():
                             rankings = rankings_list[1], 
                             rankings_list = rankings_list,
                             loops = [1,2,3,4,5])
+
+@app.route('/fill_in_database')
+def fill_in_database():
+    with open(os.path.join(APP_STATIC, 'POTUS_Candidates_data.csv')) as f:
+        reader = csv.DictReader(f)        
+        for rows in reader:
+            rows['full_name'] = rows['First'] + " " + rows['Last']
+            rankings_list.append(rows) # each element is a dictionary
+    example_candidate_data = rankings_list[1]
+    print(example_candidate_data)
+    return(example_candidate_data)
+
+
+
 
 @app.route('/signup', methods = ['POST'])
 def signup():
