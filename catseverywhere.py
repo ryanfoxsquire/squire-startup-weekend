@@ -4,6 +4,7 @@ from flask import request, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
 from settings import APP_STATIC
 import csv
+import json
 from pdb import set_trace as pause
 import requests
 from stop_words import stops
@@ -53,14 +54,40 @@ def hello_world():
 
 @app.route('/fill_in_database')
 def fill_in_database():
-    with open(os.path.join(APP_STATIC, 'POTUS_Candidates_data.csv')) as f:
-        reader = csv.DictReader(f)        
-        for rows in reader:
-            rows['full_name'] = rows['First'] + " " + rows['Last']
-            rankings_list.append(rows) # each element is a dictionary
-    example_candidate_data = rankings_list[1]
-    print(example_candidate_data)
-    return(example_candidate_data)
+
+    # I used this function to fill in my initialize the content of my database. 
+    regenerate_database_from_csv = False 
+
+    if regenerate_database_from_csv:
+
+      # build rankings list
+        rankings_list = []
+        with open(os.path.join(APP_STATIC, 'POTUS_Candidates_data.csv')) as f:
+            reader = csv.DictReader(f)        
+            for rows in reader:
+                rows['full_name'] = rows['First'] + " " + rows['Last']
+                rankings_list.append(rows) # each element is a dictionary
+        
+        for candidate in rankings_list:
+            print("\n\n\n")
+            print(candidate)    
+
+            new_candidate_data = {'first_name' : candidate["First"],
+                              'last_name' :candidate["Last"],
+                              'party' : candidate["Party"].upper(),
+                              'picture_url': candidate["picture_URL"],
+                              'twitter_url': candidate["Twitter_URL"],
+                              'facebook_url': candidate["FB_URL"],
+                              'created_at': datetime.datetime.now(),
+                              'updated_at': None,
+                              'smi': str(candidate["SMI_Index_per_million"])
+                              }
+            new_candidate = Candidate(new_candidate_data)
+            db.session.add(new_candidate)
+        db.session.commit()
+        return("SUCCESS! you loaded the database!")
+    else:
+        return( " set 'regenerate_database_from_csv = True' if you want to load files from the csv")
 
 
 
