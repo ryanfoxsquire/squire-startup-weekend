@@ -51,6 +51,7 @@ def hello_world():
 
 @app.route('/signup', methods = ['POST'])
 def signup():
+    # this route is defunct, because there is no form to give a post request 
     email = request.form['email']
     print("\nThe email address is '" + email + "'")
     email_addresses.append(email)
