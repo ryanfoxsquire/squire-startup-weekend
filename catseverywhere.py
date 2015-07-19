@@ -38,7 +38,6 @@ email_addresses = []
 @app.route('/')
 @app.route('/index')
 def hello_world():
-
     candidates = Candidate.query.all()
     return render_template('index.html', rankings_list = candidates)
 
@@ -81,15 +80,6 @@ def fill_in_database():
     else:
         return( " set 'regenerate_database_from_csv = True' if you want to load files from the csv")
 
-@app.route('/signup', methods = ['POST'])
-def signup():
-    # this route is defunct, because there is no form to give a post request 
-    email = request.form['email']
-    print("\nThe email address is '" + email + "'")
-    email_addresses.append(email)
-    print("Whole List: \n{0}".format(email_addresses))
-    return redirect('/')
-
 @app.route('/methods')
 def methods():
     return render_template('methods.html')
@@ -97,11 +87,6 @@ def methods():
 @app.route('/authors')
 def authors():
     return render_template('authors.html')
-
-@app.route('/emails.html')
-def emails():
-    # we should remove this route. 
-    return render_template('emails.html', email_addresses=email_addresses)
 
 @app.route('/realpythontutorial_index', methods=['GET', 'POST'])
 def realpythontutorial_index():
