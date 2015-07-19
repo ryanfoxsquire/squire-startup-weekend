@@ -56,7 +56,7 @@ def hello_world():
 def fill_in_database():
 
     # I used this function to fill in my initialize the content of my database. 
-    regenerate_database_from_csv = False 
+    regenerate_database_from_csv = True 
 
     if regenerate_database_from_csv:
 
