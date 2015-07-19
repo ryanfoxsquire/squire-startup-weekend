@@ -1,13 +1,10 @@
-This code was forked from https://github.com/OpenTechSchool/python-flask-code. Thanks!
 
-Then it was customized and elaborated for a startup weekend project. 
+This web app ranks 2016 Presidential Candidates on their social media influence. Methodology for the ranking is listed at www.smiranking.com/methods. 
 
+This website uses a postgres db, is hosted on heroku, and uses python -flask microframework for developing the app. 
+scraping_tools.py contains some web-scraping functionality which is used to extract the correct image URL for each candidate based on what their most up-to-date picture is on their twitter profile. 
 
-~~~~~~~~~~~~~~
-Original ReadMe:
+~~~~~~~~~
+The original basis of this code was forked from the tutorial at https://github.com/OpenTechSchool/python-flask-code. Thanks!
 
-This repository contains the code examples for the Python Flask workshop. Each section has it's own Flask app in their own separate directories.
-
-You'll need Python 2.7 and Flask installed.
-
-You can see the final Flask demo running on Heroku here: http://python-flask-code.herokuapp.com/
+Then it was customized and elaborated for a startup weekend project. Since then it has elaborated into a larger hobby project. 
