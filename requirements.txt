@@ -1,5 +1,8 @@
-Flask==0.9
-Jinja2==2.6
-Werkzeug==0.8.3
-argparse==1.2.1
-wsgiref==0.1.2
+Flask==0.10.1
+Jinja2==2.7.3
+Werkzeug==0.9.6
+psycopg2==2.6
+Flask-Migrate==1.4.0
+Flask-SQLAlchemy==2.0
+beautifulsoup4==4.3.2
+requests==2.7.0

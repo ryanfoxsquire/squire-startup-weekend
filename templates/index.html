@@ -16,16 +16,16 @@
 
   {% for this_candidate in rankings_list %}
   <tr>
-    <td>{{ this_candidate.Rank }}. </td>
-    <td style="color: black"> <img src = {{this_candidate.picture_URL}} 
-             alt = {{this_candidate.alt}} 
+    <td>{{ loop.index }}. </td>
+    <td style="color: black"> <img src = {{this_candidate.picture_url}} 
+             alt = {{this_candidate.last_name + "_image"}} 
              border=3 
              height=150 
              width=150>
            </img> 
          </td>
-    <td style="font-size: 24px">{{ this_candidate.full_name }} ({{ this_candidate.Party }})</td>  
-    <td style="font-size: 48px; width: 160px">{{ this_candidate.SMI_Index_per_million }}</td>  
+    <td style="font-size: 24px">{{ this_candidate.first_name + " " + this_candidate.last_name}} ({{ this_candidate.party }})</td>  
+    <td style="font-size: 48px; width: 160px">{{ this_candidate.smi|round(2) }}</td>  
   </tr>
   {% endfor %}
 
