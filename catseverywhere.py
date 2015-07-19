@@ -39,18 +39,8 @@ email_addresses = []
 @app.route('/index')
 def hello_world():
 
-    # build rankings list
-    rankings_list = []
-    with open(os.path.join(APP_STATIC, 'POTUS_Candidates_data.csv')) as f:
-        reader = csv.DictReader(f)        
-        for rows in reader:
-            rows['full_name'] = rows['First'] + " " + rows['Last']
-            rankings_list.append(rows) # each element is a dictionary
-
-    return render_template('index.html', 
-                            rankings = rankings_list[1], 
-                            rankings_list = rankings_list,
-                            loops = [1,2,3,4,5])
+    candidates = Candidate.query.all()
+    return render_template('index.html', rankings_list = candidates)
 
 @app.route('/fill_in_database')
 def fill_in_database():
@@ -88,9 +78,6 @@ def fill_in_database():
         return("SUCCESS! you loaded the database!")
     else:
         return( " set 'regenerate_database_from_csv = True' if you want to load files from the csv")
-
-
-
 
 @app.route('/signup', methods = ['POST'])
 def signup():
