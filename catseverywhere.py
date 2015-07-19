@@ -15,6 +15,7 @@ import os
 import requests
 import re
 import nltk
+from scraping_tools import MyHTMLParser, get_twitter_avatar_img_url
 
 import datetime
 
@@ -38,8 +39,29 @@ email_addresses = []
 @app.route('/')
 @app.route('/index')
 def hello_world():
-    candidates = Candidate.query.all()
+    candidates = Candidate.query.order_by(Candidate.smi.desc()).all()
     return render_template('index.html', rankings_list = candidates)
+
+@app.route('/refresh_data')
+def refresh_data():
+    candidates = Candidate.query.all()
+    for candidate in candidates:
+        current_img_url = get_twitter_avatar_img_url(candidate.twitter_url)
+        updates = []
+        if(current_img_url != candidate.picture_url):
+            candidate.picture_url = current_img_url
+            db.session.add(candidate)
+            updates.append(candidate.last_name)
+            print("{0} {1} picture_url WAS UPDATED! ".format(candidate.id, candidate.first_name))
+
+    if(updates):
+        db.session.commit()
+        output_string = "Updated picture_url for {0} candidate(s). they were... ".format(len(updates))
+        for update in updates:
+            output_string = output_string + "  " + update
+        return(output_string)
+    else:
+        return("I checked for updates, but there were none.")
 
 @app.route('/fill_in_database')
 def fill_in_database():
