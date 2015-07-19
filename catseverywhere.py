@@ -44,10 +44,10 @@ def hello_world():
 
 @app.route('/refresh_data')
 def refresh_data():
+    updates = []
     candidates = Candidate.query.all()
     for candidate in candidates:
         current_img_url = get_twitter_avatar_img_url(candidate.twitter_url)
-        updates = []
         if(current_img_url != candidate.picture_url):
             candidate.picture_url = current_img_url
             db.session.add(candidate)
@@ -58,7 +58,7 @@ def refresh_data():
         db.session.commit()
         output_string = "Updated picture_url for {0} candidate(s). they were... ".format(len(updates))
         for update in updates:
-            output_string = output_string + "  " + update
+            output_string = output_string + "  " + update + ","
         return(output_string)
     else:
         return("I checked for updates, but there were none.")
