@@ -3,20 +3,9 @@ from flask import Flask, render_template
 from flask import request, redirect
 from flask.ext.sqlalchemy import SQLAlchemy
 from settings import APP_STATIC
-import csv
-import json
 from pdb import set_trace as pause
 import requests
-from stop_words import stops
-from collections import Counter
-from bs4 import BeautifulSoup
-import operator
-import os
-import requests
-import re
-import nltk
 from scraping_tools import MyHTMLParser, get_twitter_avatar_img_url
-
 import datetime
 
 app = Flask(__name__)
@@ -47,6 +36,7 @@ def refresh_data():
         current_img_url = get_twitter_avatar_img_url(candidate.twitter_url)
         if(current_img_url != candidate.picture_url):
             candidate.picture_url = current_img_url
+            #TODO, candidate.updated_at = datetime.dateime.now()
             db.session.add(candidate)
             updates.append(candidate.last_name)
             print("{0} {1} picture_url WAS UPDATED! ".format(candidate.id, candidate.first_name))
