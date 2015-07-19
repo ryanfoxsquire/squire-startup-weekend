@@ -45,6 +45,8 @@ def hello_world():
 @app.route('/fill_in_database')
 def fill_in_database():
 
+    # NOTE: THIS FUNCTION IS DEFUCNT NOW THAT csv has also been deleted from codebase. 
+    # TO GET THIS FUNCTIONALITY BACK GO TO  COMMIT  https://github.com/ryanfoxsquire/squire-startup-weekend/commit/af6d307ac76864dfdee940fcc3bd30610ed24160
     # I used this function to fill in my initialize the content of my database. 
     regenerate_database_from_csv = False 
 
